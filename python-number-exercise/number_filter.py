@@ -63,10 +63,25 @@ def ev_les15_mul3(numbers):
 
 #Conditions specified using a set of functions: prime, greater than 15, multiple of 5
 def prime_grt15_mul5(numbers):
-    prnum = prime_numbers(numbers)
-    grt15 = [num for num in prnum if great(num,15)]
-    #mul5 = [num for num in grt15 if multiple(num,5)]
-    return grt15
+    mul5=[]
+    for n in numbers:
+        if is_prime(n) :
+           mul5.append(n)
+        elif great (n,15):
+           mul5.append(n)
+        elif multiple(n,5):
+           mul5.append(n)
+    return mul5
+
+#Conditions specified using a set of functions: less than 6, multiple of 3
+def less_6mul3(numbers):
+    mul3=[]
+    for n in numbers:
+        if less(n,6):
+           mul3.append(n)
+        elif multiple(n,3):
+           mul3.append(n)
+    return mul3
 
 
 
@@ -82,6 +97,7 @@ if __name__ == "__main__":
     od_grt5_mul3 = od_grt5_mul3(sample_input2)
     ev_les15_mul3 = ev_les15_mul3(sample_input2)
     prime_grt15_mul5 = prime_grt15_mul5(sample_input2)
+    less_6mul3 = less_6mul3(sample_input2)
     print("Even Numbers:", even_result)
     print("Odd Numbers:", odd_result)
     print("Prime Numbers:", prime_result)
@@ -91,6 +107,7 @@ if __name__ == "__main__":
     print("Odd greater than 5 multiple of 3 ", od_grt5_mul3)
     print("Even less than 15 multiple of 3 ", ev_les15_mul3)
     print("Prime, greater than 15, multiple of 5", prime_grt15_mul5)
+    print("less than 6, multiple of 3 ", less_6mul3)
 
 
 # Use input as array of numbers instead of comma separated string input
